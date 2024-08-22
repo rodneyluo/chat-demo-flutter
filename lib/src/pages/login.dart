@@ -72,9 +72,18 @@ class AppLogo extends StatelessWidget {
       children: [
         Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [theme.lightPrimaryColor ?? CommonColor.lightPrimaryColor, theme.primaryColor ?? CommonColor.primaryColor]),
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    theme.lightPrimaryColor ?? CommonColor.lightPrimaryColor,
+                    theme.primaryColor ?? CommonColor.primaryColor
+                  ]),
             ),
-            child: Image.asset("assets/hero_image.png", color: Colors.transparent, width: MediaQuery.of(context).size.width, height: 500)),
+            child: Image.asset("assets/hero_image.png",
+                color: Colors.transparent,
+                width: MediaQuery.of(context).size.width,
+                height: 500)),
         Positioned(
           child: Container(
             padding: EdgeInsets.only(top: height / 30, left: 24),
@@ -153,7 +162,11 @@ class _LoginFormState extends State<LoginForm> {
       ),
       recognizer: TapGestureRecognizer()
         ..onTap = () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyDocument(title: title, url: url)));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      PrivacyDocument(title: title, url: url)));
         },
     );
   }
@@ -170,53 +183,67 @@ class _LoginFormState extends State<LoginForm> {
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8))),
           content: Text.rich(
-            TextSpan(style: const TextStyle(fontSize: 14, color: Colors.black, height: 2.0), children: [
-              TextSpan(
-                text: TIM_t("欢迎使用腾讯云即时通信 IM，为保护您的个人信息安全，我们更新了《隐私政策》，主要完善了收集用户信息的具体内容和目的、增加了第三方SDK使用等方面的内容。"),
-              ),
-              const TextSpan(
-                text: "\n",
-              ),
-              TextSpan(
-                text: TIM_t("请您点击"),
-              ),
-              webViewLink("《用户协议》", 'https://web.sdk.qcloud.com/document/Tencent-IM-User-Agreement.html'),
-              TextSpan(
-                text: TIM_t(", "),
-              ),
-              webViewLink("《隐私协议》", 'https://privacy.qq.com/document/preview/1cfe904fb7004b8ab1193a55857f7272'),
-              TextSpan(
-                text: TIM_t(", "),
-              ),
-              webViewLink("《信息收集清单》", 'https://privacy.qq.com/document/preview/45ba982a1ce6493597a00f8c86b52a1e'),
-              TextSpan(
-                text: TIM_t("和"),
-              ),
-              webViewLink("《信息共享清单》", 'https://privacy.qq.com/document/preview/dea84ac4bb88454794928b77126e9246'),
-              TextSpan(text: TIM_t("并仔细阅读，如您同意以上内容，请点击“同意并继续”，开始使用我们的产品与服务！")),
-            ]),
+            TextSpan(
+                style: const TextStyle(
+                    fontSize: 14, color: Colors.black, height: 2.0),
+                children: [
+                  TextSpan(
+                    text: TIM_t(
+                        "欢迎使用腾讯云即时通信 IM，为保护您的个人信息安全，我们更新了《隐私政策》，主要完善了收集用户信息的具体内容和目的、增加了第三方SDK使用等方面的内容。"),
+                  ),
+                  const TextSpan(
+                    text: "\n",
+                  ),
+                  TextSpan(
+                    text: TIM_t("请您点击"),
+                  ),
+                  webViewLink("《用户协议》",
+                      'https://web.sdk.qcloud.com/document/Tencent-IM-User-Agreement.html'),
+                  TextSpan(
+                    text: TIM_t(", "),
+                  ),
+                  webViewLink("《隐私协议》",
+                      'https://privacy.qq.com/document/preview/1cfe904fb7004b8ab1193a55857f7272'),
+                  TextSpan(
+                    text: TIM_t(", "),
+                  ),
+                  webViewLink("《信息收集清单》",
+                      'https://privacy.qq.com/document/preview/45ba982a1ce6493597a00f8c86b52a1e'),
+                  TextSpan(
+                    text: TIM_t("和"),
+                  ),
+                  webViewLink("《信息共享清单》",
+                      'https://privacy.qq.com/document/preview/dea84ac4bb88454794928b77126e9246'),
+                  TextSpan(
+                      text: TIM_t("并仔细阅读，如您同意以上内容，请点击“同意并继续”，开始使用我们的产品与服务！")),
+                ]),
             overflow: TextOverflow.clip,
           ),
           actions: [
             CupertinoDialogAction(
               child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
                   decoration: const BoxDecoration(
                     color: Color.fromRGBO(0, 110, 253, 1),
                     borderRadius: BorderRadius.all(
                       Radius.circular(24),
                     ),
                   ),
-                  child: Text(TIM_t("同意并继续"), style: const TextStyle(color: Colors.white, fontSize: 16))),
+                  child: Text(TIM_t("同意并继续"),
+                      style:
+                          const TextStyle(color: Colors.white, fontSize: 16))),
               onPressed: () {
                 prefs.setString("firstTime", "true");
                 Navigator.of(context).pop(true);
               },
             ),
             CupertinoDialogAction(
-              child: Text(TIM_t("不同意并退出"), style: const TextStyle(color: Colors.grey, fontSize: 16)),
+              child: Text(TIM_t("不同意并退出"),
+                  style: const TextStyle(color: Colors.grey, fontSize: 16)),
               isDestructiveAction: true,
               onPressed: () {
                 exit(0);
@@ -249,9 +276,14 @@ class _LoginFormState extends State<LoginForm> {
       key: key,
     );
 
-    String userSig = generateTestUserSig.genSig(identifier: userID, expire: 99999);
-
+    String userSig =
+        generateTestUserSig.genSig(identifier: userID, expire: 99999);
+    sdkAppId = 1600050126;
+    // userID = "test01";
+    userSig =
+        "eJwtzDEPgjAQhuH-cquGXEtbIomDqItigpHJDWkpp1EJNGhi-O9WYLzn-XIfyNNT0JsWYuABwny4SZuHo4oGdqZzyKbS6VvRNKQhZgoRJTKuxmLeDbXGu5SS*zSqo-vfIi54GCo5bTuy-rFdb*3zvCqT7JXVs*JoRZ0LjunC9FpEl6yqE73ZXdk*PCzh*wMvXzCt";
     await TUICallKit.instance.login(sdkAppId, userID, userSig);
+    // await TUICallKit.instance.login(sdkAppId, userID, userSig);
 
     var data = await coreInstance.login(
       userID: userID,
@@ -259,7 +291,8 @@ class _LoginFormState extends State<LoginForm> {
     );
     if (data.code != 0) {
       final option1 = data.desc;
-      ToastUtils.toast(TIM_t_para("登录失败{{option1}}", "登录失败$option1")(option1: option1));
+      ToastUtils.toast(
+          TIM_t_para("登录失败{{option1}}", "登录失败$option1")(option1: option1));
       return;
     }
 
@@ -286,11 +319,16 @@ class _LoginFormState extends State<LoginForm> {
                 //背景
                 color: Colors.white,
 
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30.0),
+                    topRight: Radius.circular(30.0),
+                    bottomLeft: Radius.circular(30.0),
+                    bottomRight: Radius.circular(30.0)),
                 //设置四周边框
               ),
               // color: Colors.white,
-              height: MediaQuery.of(context).size.height - CommonUtils.adaptHeight(600),
+              height: MediaQuery.of(context).size.height -
+                  CommonUtils.adaptHeight(600),
 
               width: MediaQuery.of(context).size.width,
               child: Form(
@@ -298,7 +336,8 @@ class _LoginFormState extends State<LoginForm> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: CommonUtils.adaptFontSize(34)),
+                      padding:
+                          EdgeInsets.only(top: CommonUtils.adaptFontSize(34)),
                       child: Text(
                         TIM_t("用户名"),
                         style: TextStyle(
@@ -310,9 +349,11 @@ class _LoginFormState extends State<LoginForm> {
                     TextField(
                       autofocus: false,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(left: CommonUtils.adaptWidth(14)),
+                        contentPadding:
+                            EdgeInsets.only(left: CommonUtils.adaptWidth(14)),
                         hintText: TIM_t("请输入用户名"),
-                        hintStyle: TextStyle(fontSize: CommonUtils.adaptFontSize(32)),
+                        hintStyle:
+                            TextStyle(fontSize: CommonUtils.adaptFontSize(32)),
                         //
                       ),
                       keyboardType: TextInputType.number,
