@@ -278,13 +278,7 @@ class _LoginFormState extends State<LoginForm> {
 
     String userSig =
         generateTestUserSig.genSig(identifier: userID, expire: 99999);
-    sdkAppId = 1600050126;
-    // userID = "test01";
-    userSig =
-        "eJwtzDEPgjAQhuH-cquGXEtbIomDqItigpHJDWkpp1EJNGhi-O9WYLzn-XIfyNNT0JsWYuABwny4SZuHo4oGdqZzyKbS6VvRNKQhZgoRJTKuxmLeDbXGu5SS*zSqo-vfIi54GCo5bTuy-rFdb*3zvCqT7JXVs*JoRZ0LjunC9FpEl6yqE73ZXdk*PCzh*wMvXzCt";
     await TUICallKit.instance.login(sdkAppId, userID, userSig);
-    // await TUICallKit.instance.login(sdkAppId, userID, userSig);
-
     var data = await coreInstance.login(
       userID: userID,
       userSig: userSig,

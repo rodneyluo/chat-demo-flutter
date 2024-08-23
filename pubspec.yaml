@@ -68,7 +68,7 @@ dependencies:
   url_launcher: ^6.1.5
   adaptive_action_sheet: ^2.0.3
   webview_flutter: ^3.0.0
-  flutter_easyloading: ^3.0.3
+  flutter_easyloading: ^3.0.5
   tencent_super_tooltip: ^0.0.1
   uni_links: ^0.5.1
   flutter_launcher_icons: ^0.13.1
